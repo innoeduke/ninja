@@ -1,23 +1,27 @@
+import { useState } from "react";
+
 const Home = () => {
-  const playerName = "Zelda";
+  const [age, setAge] = useState(100);
+  const [index, setIndex] = useState(0);
+  const [playerName, setPlayerName] = useState("Link");
 
-  // e参数是event，是一个object，包含了所有关于这个event的信息
   const handleClick = (e) => {
-    console.log("Hello, ninjas!", e);
-  };
-  const handleClickAgain = (name, e) => {
-    console.log("Hello " + name + "!", e);
+    setPlayerName(["Zelda", "Link"][index]);
+    setIndex(1 - index);
+    setAge(age - 1);
+    // BUG: 这里会输出 Index: 0 => Hello Link! 这是不对的.
+    console.log("Index: " + index + " => Hello " + playerName + "!", e);
   };
 
-  // 第二个onClick的handler，不能直接写成handleClickAgain(playerName)，因为这样会在页面加载时就执行，而不是点击按钮时才执行
-  // 所以要创建一个无名函数：() => handleClickAgain(playerName)，这样就会在点击按钮时才执行
+  // 这个版本的react，不用hook也可以保存state了；但如果用了，就只能都用。
   return (
     <div className="home">
       <h2>Homepage</h2>
+      <br />
+      <p>
+        {playerName} is {age} years old.
+      </p>
       <button onClick={handleClick}>Click Me</button>
-      <button onClick={(e) => handleClickAgain(playerName, e)}>
-        Click Me again
-      </button>
     </div>
   );
 };
