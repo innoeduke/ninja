@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const BlogList = ({ blogs, title, handleDelete }) => {
   // const blogs = props.blogs;
   // const title = props.title;
@@ -7,8 +8,11 @@ const BlogList = ({ blogs, title, handleDelete }) => {
       <h2>{title}</h2>
       {blogs.map((blog) => (
         <div className="blog-preview" key={blog.id}>
-          <h2>{blog.title}</h2>
-          <p>Written by {blog.author}</p>
+          {/* The pair of backticks are called template literals in javascript, which is pretty much like f-string in python */}
+          <Link to={`/blogs/${blog.id}`}>
+            <h2>{blog.title}</h2>
+            <p>Written by {blog.author}</p>
+          </Link>
         </div>
       ))}
     </div>
