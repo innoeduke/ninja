@@ -94,6 +94,20 @@
   display: block;
 }
 
+.not-found h2 {
+  color: #f1356d;
+  font-size: 20px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.not-found a {
+  margin: 30px auto;
+  display: block;
+  color: #f1356d;
+  text-decoration: none;
+}
+
 button {
   background: #f1356d;
   color: #fff;
