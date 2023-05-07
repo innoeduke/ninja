@@ -37,6 +37,8 @@
 - Error Handling
   * catch() method: `catch((err) => {})`
   * throw statement: `throw Error("err_msg")`
+- Json-server
+  * json-server --watch <json_data_file> --port <port_number>
 
 ### Resources
 
